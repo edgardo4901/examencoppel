@@ -22,3 +22,29 @@ select,
 textarea {
     max-width: 280px;
 }
+h1,h2,h3,h4,h5,h6{
+    color:black;
+}
+.textWhite{
+    color:white !important;
+}
+.bg-primary{
+    background-color:#292b2c !important;
+}
+.col-centered {
+    float: none;
+    margin: 0 auto;
+}
+.md-form label {
+    font-size: .8rem;
+    -webkit-transform: translateY(-140%);
+    -moz-transform: translateY(-140%);
+    -ms-transform: translateY(-140%);
+    -o-transform: translateY(-140%);
+    transform: translateY(-140%);
+}
+.form-header {
+    background:#808080;
+}
+.larga{width: 400px !important;}
+.corta{width: 100px !important;}

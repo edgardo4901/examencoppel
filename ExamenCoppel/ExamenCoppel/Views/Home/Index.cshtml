@@ -1,31 +1,51 @@
 ﻿@{
-    ViewBag.Title = "Home Page";
+    ViewBag.Title = "Nuevo";
 }
+<div class="col-md-8 col-centered mt-3">
+    <div class="card">
+        <div class="card-block">
+            <!--Header-->
+            <div class="form-header">
+                <h3 class="textWhite">EMPLEADO</h3>
+            </div>
 
-<div class="jumbotron">
-    <h1>ASP.NET</h1>
-    <p class="lead">ASP.NET is a free web framework for building great Web sites and Web applications using HTML, CSS and JavaScript.</p>
-    <p><a href="http://asp.net" class="btn btn-primary btn-lg">Learn more &raquo;</a></p>
-</div>
-
-<div class="row">
-    <div class="col-md-4">
-        <h2>Getting started</h2>
-        <p>
-            ASP.NET MVC gives you a powerful, patterns-based way to build dynamic websites that
-            enables a clean separation of concerns and gives you full control over markup
-            for enjoyable, agile development.
-        </p>
-        <p><a class="btn btn-default" href="http://go.microsoft.com/fwlink/?LinkId=301865">Learn more &raquo;</a></p>
-    </div>
-    <div class="col-md-4">
-        <h2>Get more libraries</h2>
-        <p>NuGet is a free Visual Studio extension that makes it easy to add, remove, and update libraries and tools in Visual Studio projects.</p>
-        <p><a class="btn btn-default" href="http://go.microsoft.com/fwlink/?LinkId=301866">Learn more &raquo;</a></p>
-    </div>
-    <div class="col-md-4">
-        <h2>Web Hosting</h2>
-        <p>You can easily find a web hosting company that offers the right mix of features and price for your applications.</p>
-        <p><a class="btn btn-default" href="http://go.microsoft.com/fwlink/?LinkId=301867">Learn more &raquo;</a></p>
+            <!--Body-->
+            <div style="margin-bottom:20px;">
+                <span class="labeSubTitulo">Si deseas modificar o eliminar solo teclea el numero de empleado y presiona enter</span>
+                <br />
+            </div>
+            <div class="md-form">
+                <input type="number" id="txtNumero" class="form-control corta">
+                <label for="txtNumero">Numero</label>
+            </div>
+            <div class="md-form">
+                <input type="text" id="txtNombre" length="200" maxlength="200" class="form-control larga">
+                <label for="txtNombre">Nombre</label>
+            </div>
+            <div>
+                <div style="width:100%;margin-top: 3rem;">
+                    <div class="md-form">
+                        <div class="md-form">
+                            <label for="ddlRol" class="active lblCombo">Rol</label>
+                            <select class="form-control" id="ddlRol" style="width:400px;"></select>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div>
+                <div style="width:100%;margin-top: 3rem;">
+                    <div class="md-form">
+                        <div class="md-form">
+                            <label for="ddlTipo" class="active lblCombo">Tipo</label>
+                            <select class="form-control" id="ddlTipo" style="width:400px;"></select>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="text-right">
+                <button id="btnEliminar" class="btn btn-primary">Eliminar</button>
+                <button id="btnGuardar" class="btn btn-primary">Guardar</button>
+            </div>
+        </div>
     </div>
 </div>
