@@ -46,5 +46,24 @@ h1,h2,h3,h4,h5,h6{
 .form-header {
     background:#808080;
 }
+.loading {position: absolute;margin: auto;top: 0;left: 0;right: 0;bottom: 0;}
+.ctl_lightbox {
+    display:    none;
+    position:   fixed;
+    z-index:    1000;
+    top:        0;
+    left:       0;
+    height:     100%;
+    width:      100%;
+    background: rgba( 255, 255, 255, .8 ) 
+                50% 50% 
+                no-repeat;
+}
+body.loading {
+    overflow: hidden;   
+}
+body.loading .ctl_lightbox {
+    display: block;
+}
 .larga{width: 400px !important;}
 .corta{width: 100px !important;}

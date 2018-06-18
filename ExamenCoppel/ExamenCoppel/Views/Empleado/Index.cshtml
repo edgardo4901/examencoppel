@@ -1,7 +1,7 @@
 ﻿@{
     ViewBag.Title = "Nuevo";
 }
-<div class="col-md-8 col-centered mt-3">
+<div class="col-md-8 col-centered mt-4">
     <div class="card">
         <div class="card-block">
             <!--Header-->
@@ -15,7 +15,7 @@
                 <br />
             </div>
             <div class="md-form">
-                <input type="number" id="txtNumero" class="form-control corta">
+                <input type="text" id="txtNumero" length="10" maxlength="10" class="form-control corta" onkeypress='return layautViewModel.validarNumero(event)'>
                 <label for="txtNumero">Numero</label>
             </div>
             <div class="md-form">
@@ -49,3 +49,4 @@
         </div>
     </div>
 </div>
+<script src="~/ViewModel/empleadoViewModel.js"></script>
