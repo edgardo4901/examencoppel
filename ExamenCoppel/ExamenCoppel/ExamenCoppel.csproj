@@ -203,6 +203,7 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
     <Compile Include="Controllers\CatalogoController.cs" />
+    <Compile Include="Controllers\MovimientoController.cs" />
     <Compile Include="Manager\Catalogos.cs" />
     <Compile Include="Controllers\EmpleadoController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
@@ -210,8 +211,10 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Manager\CatEmpleado.cs" />
+    <Compile Include="Manager\CatMovimiento.cs" />
     <Compile Include="Manager\ConnectionManager.cs" />
     <Compile Include="Models\CatEmpleado.cs" />
+    <Compile Include="Models\CatMovimiento.cs" />
     <Compile Include="Models\CatRolEmpleado.cs" />
     <Compile Include="Models\CatTipoEmpleado.cs" />
     <Compile Include="Manager\ServiceUtils.cs" />
@@ -253,6 +256,7 @@
     <Content Include="Scripts\Toast\toastr.min.css" />
     <Content Include="Scripts\Toast\toastr.min.js" />
     <Content Include="Scripts\_references.js" />
+    <Content Include="ViewModel\movimientoViewModel.js" />
     <Content Include="ViewModel\empleadoViewModel.js" />
     <Content Include="ViewModel\layautViewModel.js" />
     <Content Include="Web.config" />
@@ -267,11 +271,10 @@
     <Content Include="Views\Shared\_Layout.cshtml" />
     <Content Include="Views\Empleado\Index.cshtml" />
     <Content Include="Scripts\Toast\toastr.min.js.map" />
+    <Content Include="Views\Movimiento\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Views\Catalogo\" />
-    <Folder Include="Views\Home\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff" />

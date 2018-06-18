@@ -66,4 +66,13 @@ body.loading .ctl_lightbox {
     display: block;
 }
 .larga{width: 400px !important;}
+.media{width: 250px !important;}
 .corta{width: 100px !important;}
+.inlineblock {
+  display: inline-block;
+  vertical-align: top;
+}
+.lblCombo {
+    padding-bottom:10px;
+}
+.datepicker {margin-top: .2rem !important;padding: .5rem 0 .6rem !important;}
