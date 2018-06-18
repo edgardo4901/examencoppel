@@ -38,5 +38,19 @@ namespace ExamenCoppel.Controllers
                 return serializer.Serialize(new { d = Response<object>.CrearResponseVacio<object>(false, e.Message) });
             }
         }
+        [HttpPost]
+        public string ConsultarEmpleados(int EmpleadoID)
+        {
+            JavaScriptSerializer serializer = new JavaScriptSerializer();
+            try
+            {
+                List<Models.CatEmpleado> listaDatos = Manager.CatEmpleado.ConsultarEmpleados(EmpleadoID);
+                return serializer.Serialize(new { d = Response<object>.CrearResponse<object>(true, listaDatos) });
+            }
+            catch (Exception e)
+            {
+                return serializer.Serialize(new { d = Response<object>.CrearResponseVacio<object>(false, e.Message) });
+            }
+        }
     }
 }

@@ -83,5 +83,36 @@ namespace ExamenCoppel.Manager
                 }
             }
         }
+        public static List<Models.CatEmpleado> ConsultarEmpleados(int EmpleadoID)
+        {
+            using (var connection = ConnectionManager.ConnectionFactory())
+            {
+                var result = new List<Models.CatEmpleado>();
+                using (var command = connection.CreateCommand())
+                {
+
+                    command.CommandText = "[CatEmpleadoSelectDiferente]";
+                    command.CommandType = CommandType.StoredProcedure;
+
+                    command.AddParameter(EmpleadoID, DbType.Int32, "@EmpleadoID");
+                    connection.Open();
+                    using (var reader = command.ExecuteReader())
+                    {
+                        while (reader.Read())
+                        {
+                            Models.CatEmpleado elemento = new Models.CatEmpleado();
+                            elemento.EmpleadoID = int.Parse(reader["EmpleadoID"].ToString());
+                            elemento.Nombre = reader["Nombre"].ToString();
+                            elemento.RolEmpleadoID = int.Parse(reader["RolEmpleadoID"].ToString());
+                            elemento.TipoEmpleadoID = int.Parse(reader["TipoEmpleadoID"].ToString());
+                            result.Add(elemento);
+                        }
+
+                    }
+                    return result;
+
+                }
+            }
+        }
     }
 }

@@ -36,10 +36,12 @@
                             if (d.d.Datos.RolEmpleadoID == 3)
                             {
                                 $('#cbCubrioTurno').prop('disabled', false);
+                                llenarEmpleadosCubrir();
                             }
                             else
                             {
                                 $('#cbCubrioTurno').prop('disabled', true);
+                                $('#ddlRolCubrio').find('option').remove();
                             }
                         }
                         else
@@ -172,7 +174,6 @@
     };
     var llenarRolesEmpleado = function () {
         $('#ddlRol').find('option').remove();
-        $('#ddlRolCubrio').find('option').remove();
         $.ajax({
             type: "POST",
             url: layautViewModel.subdominioPagina + "/Catalogo/ConsultarRolesEmpleado",
@@ -184,15 +185,35 @@
                 if (d.d.EsValido) {
                     for (var i = 0; i < d.d.Datos.length; i++) {
                         $('#ddlRol').append('<option value=' + d.d.Datos[i].RolEmpleadoID + '>' + d.d.Datos[i].Descripcion + '</option>');
-                        if (d.d.Datos[i].RolEmpleadoID != 3)
-                        {
-                            $('#ddlRolCubrio').append('<option value=' + d.d.Datos[i].RolEmpleadoID + '>' + d.d.Datos[i].Descripcion + '</option>');
-                        }
                     }
                 }
                 else {
                     //examen.ShowLightBox(false);
                     examen.showMsg('Alerta', d.d.Mensaje, 'warning');
+                }
+            },
+            error: function (XMLHttpRequest, textStatus, errorThrown) {
+                examen.showMsg('Alerta', errorThrown, 'error');
+            }
+        });
+    };
+    var llenarEmpleadosCubrir = function () {
+        $('#ddlRolCubrio').find('option').remove();
+        $.ajax({
+            type: "POST",
+            url: layautViewModel.subdominioPagina + "/Catalogo/ConsultarEmpleados?EmpleadoID=" + $('#txtNumero').val(),
+            async: true,
+            data: null,
+            contentType: "application/json; charset=utf-8",
+            dataType: "json",
+            success: function (d) {
+                if (d.d.EsValido) {
+                    for (var i = 0; i < d.d.Datos.length; i++) {
+                        $('#ddlRolCubrio').append('<option value=' + d.d.Datos[i].EmpleadoID + '>' + d.d.Datos[i].Nombre + '</option>');
+                    }
+                }
+                else {
+                    $('#ddlRolCubrio').append('<option value=0>' + 'No Existen Empleados' + '</option>');
                 }
             },
             error: function (XMLHttpRequest, textStatus, errorThrown) {
@@ -213,6 +234,7 @@
         $('#ddlRol').prop('disabled', true);
         $('#cbCubrioTurno').prop('disabled', true);
         $('#ddlRolCubrio').prop('disabled', true);
+        $('#ddlRolCubrio').find('option').remove();
     }
 
     $(document).ready(function () {
