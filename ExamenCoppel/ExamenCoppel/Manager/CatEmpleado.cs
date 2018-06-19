@@ -114,5 +114,47 @@ namespace ExamenCoppel.Manager
                 }
             }
         }
+        public static List<Models.EmpleadoNomina> ConsultarNominaEmpleado(int mes,int ano)
+        {
+            using (var connection = ConnectionManager.ConnectionFactory())
+            {
+                var result = new List<Models.EmpleadoNomina>();
+                using (var command = connection.CreateCommand())
+                {
+
+                    command.CommandText = "[EmpleadoNominaSelect]";
+                    command.CommandType = CommandType.StoredProcedure;
+
+                    command.AddParameter(mes, DbType.Int32, "@Mes");
+                    command.AddParameter(ano, DbType.Int32, "@Ano");
+                    connection.Open();
+                    using (var reader = command.ExecuteReader())
+                    {
+                        while (reader.Read())
+                        {
+                            Models.EmpleadoNomina elemento = new Models.EmpleadoNomina();
+                            elemento.EmpleadoID = int.Parse(reader["EmpleadoID"].ToString());
+                            elemento.Nombre = reader["Nombre"].ToString();
+                            elemento.RolEmpleado = reader["RolEmpleado"].ToString();
+                            elemento.TipoEmpleado = reader["TipoEmpleado"].ToString();
+                            elemento.CantidadEntregas = int.Parse(reader["CantidadEntregas"].ToString());
+                            elemento.SueldoMensual = decimal.Parse(reader["SueldoMensual"].ToString());
+                            elemento.BonoHorasMensual = decimal.Parse(reader["BonoHorasMensual"].ToString());
+                            elemento.BonoEntregas = decimal.Parse(reader["BonoEntregas"].ToString());
+                            elemento.BonoHorasCubrir = decimal.Parse(reader["BonoHorasCubrir"].ToString());
+                            elemento.DescuentoHorasFaltas = decimal.Parse(reader["DescuentoHorasFaltas"].ToString());
+                            elemento.BonoValeDespensa = decimal.Parse(reader["BonoValeDespensa"].ToString());
+                            elemento.RetencionISR = decimal.Parse(reader["RetencionISR"].ToString());
+                            elemento.SueldoBrutoMensual = decimal.Parse(reader["SueldoBrutoMensual"].ToString());
+                            elemento.SueldoNetoMensual = elemento.SueldoBrutoMensual - elemento.RetencionISR;
+                            result.Add(elemento);
+                        }
+
+                    }
+                    return result;
+
+                }
+            }
+        }
     }
 }

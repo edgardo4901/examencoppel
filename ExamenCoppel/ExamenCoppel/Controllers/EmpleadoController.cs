@@ -15,6 +15,10 @@ namespace ExamenCoppel.Controllers
         {
             return View();
         }
+        public ActionResult Nomina()
+        {
+            return View();
+        }
         [HttpPost]
         public string GuardarEmpleado(Models.CatEmpleado oEmpleado)
         {
@@ -50,6 +54,20 @@ namespace ExamenCoppel.Controllers
             {
                 CatEmpleado dato = Manager.CatEmpleado.ConsultarEmpleado(EmpleadoID);
                 return serializer.Serialize(new { d = Response<object>.CrearResponse<object>(true, dato) });
+            }
+            catch (Exception e)
+            {
+                return serializer.Serialize(new { d = Response<object>.CrearResponseVacio<object>(false, e.Message) });
+            }
+        }
+        [HttpPost]
+        public string ConsultarEmpleadoNomina(int mes,int ano)
+        {
+            JavaScriptSerializer serializer = new JavaScriptSerializer();
+            try
+            {
+                List<Models.EmpleadoNomina> listaDatos = Manager.CatEmpleado.ConsultarNominaEmpleado(mes,ano);
+                return serializer.Serialize(new { d = Response<object>.CrearResponse<object>(true, listaDatos) });
             }
             catch (Exception e)
             {

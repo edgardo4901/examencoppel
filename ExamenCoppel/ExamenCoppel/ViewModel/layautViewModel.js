@@ -92,12 +92,17 @@ var layautViewModel = {
 
         menu = menu + "<li class='nav-item menuPrincipal' value='/Movimiento/Index'><a class='nav-link waves-effect waves-light' style='display: inline-block;padding-left: 0;'>Movimientos</a></li>";
         menu = menu + "<li class='nav-item menuPrincipal' value='/Empleado/Index'><a class='nav-link waves-effect waves-light' style='display: inline-block;padding-left: 0;' >Empleado</a></li>";
+        menu = menu + "<li class='nav-item menuPrincipal' value='/Empleado/Nomina'><a class='nav-link waves-effect waves-light' style='display: inline-block;padding-left: 0;' >Nomina</a></li>";
         menu = menu + "</ul>";
         $("#navbarNav1").append(menu);
         $(".menuPrincipal").click(function () {
             var value = $(this).attr("value");
             location.href = layautViewModel.subdominioPagina + value;
         });
+    },
+    round: function (value, decimals) {
+        var a = Number(Math.round(value + 'e' + decimals) + 'e-' + decimals);
+        return Number(Math.round(value + 'e' + decimals) + 'e-' + decimals);
     }
 };
 

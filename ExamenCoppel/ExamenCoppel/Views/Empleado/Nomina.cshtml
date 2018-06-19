@@ -1,0 +1,54 @@
+﻿@{
+    ViewBag.Title = "Nomina";
+}
+<div class="col-md-13 col-centered mt-4">
+    <div class="card">
+        <div class="card-block">
+            <!--Header-->
+            <div class="form-header">
+                <h3 class="textWhite">NOMINA MENSUAL</h3>
+            </div>
+
+            <!--Body-->
+            <div style="margin-top: 2rem;">
+                <div class="inlineblock">
+                    <div class="md-form">
+                        <label for="ddlAno" class="active lblCombo">Año</label>
+                        <select class="form-control" id="ddlAno" style="width:250px;"></select>
+                    </div>
+                </div>
+                <div class="inlineblock">
+                    <div class="md-form">
+                        <label for="ddlMes" class="active lblCombo">Mes</label>
+                        <select class="form-control" id="ddlMes" style="width:250px;"></select>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-body">
+                <div class="md-form" style="text-align: -webkit-center">
+                    <table class="table table-hover" @*style="max-width: 75% !important"*@>
+                        <thead>
+                            <tr>
+                                <th>Nombre</th>
+                                <th>Rol</th>
+                                <th>Tipo</th>
+                                <th>Entregas</th>
+                                <th>Sueldo Mensual</th>
+                                <th>Bono Horas</th>
+                                <th>Bono Entregas</th>
+                                <th>Bono Cubridas</th>
+                                <th>Descuento Faltas</th>
+                                <th>Bono Despensa</th>
+                                <th>Retencion ISR</th>
+                                <th>Sueldo Bruto Mensual</th>
+                                <th>Sueldo Neto Mensual</th>
+                            </tr>
+                        </thead>
+                        <tbody id="divEmpleados"></tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<script src="~/ViewModel/nominaViewModel.js"></script>
