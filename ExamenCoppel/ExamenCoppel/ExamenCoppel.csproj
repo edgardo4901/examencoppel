@@ -233,6 +233,9 @@
     <Content Include="Content\Site.css" />
     <Content Include="Include\CSS\datepicker.css" />
     <Content Include="Include\CSS\jquery.datetimepicker.min.css" />
+    <Content Include="Include\Scripts\funciones.sql" />
+    <Content Include="Include\Scripts\procedimientos.sql" />
+    <Content Include="Include\Scripts\tablas.sql" />
     <Content Include="Scripts\ai.0.22.9-build00167.js" />
     <Content Include="Scripts\ai.0.22.9-build00167.min.js" />
     <Content Include="Scripts\bootstrap-wysiwyg.js" />
